@@ -18,9 +18,6 @@ jobs:
       - name: Install pipenv dependencies
         run: pipenv install
       - name: Run script
-        with:
-          python-version: "3.7"
-          cache: "pipenv"
         env:
           PUSHBULLET_API_KEY: ${{ secrets.PUSHBULLET_API_KEY }}
         run: python main.py
