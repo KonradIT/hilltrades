@@ -18,7 +18,6 @@ jobs:
       - name: Install pipenv dependencies
         run: pipenv install
       - name: Run script
-        uses: actions/setup-python@v2
         with:
           python-version: "3.7"
           cache: "pipenv"
