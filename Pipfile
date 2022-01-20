@@ -8,6 +8,7 @@ fake-useragent = "*"
 "pushbullet.py" = "*"
 degiroapi = "*"
 python-dateutil = "*"
+requests = "*"
 
 [dev-packages]
 
