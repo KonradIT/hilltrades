@@ -4,6 +4,7 @@ from pushbullet import Pushbullet
 import os
 from dateutil.parser import parse
 from datetime import datetime as dt
+import datetime
 import logging
 import dotenv
 import time
@@ -14,7 +15,7 @@ logging.basicConfig(handlers=[
 ],
     format="%(asctime)s %(message)s",
     datefmt="%H:%M:%S",
-    level=logging.INFO)
+    level=logging.DEBUG)
 
 dotenv.load_dotenv(".env")
 
@@ -48,8 +49,10 @@ p = capitol.trades(
 )
 
 for tx in p:
-
-    if parse(tx.get("addedDate")).date() == dt.now().date():
+    print(tx)
+    if parse(tx.get("addedDate")).date() + datetime.timedelta(days=1) == dt.now().date() or \
+        parse(tx.get("addedDate")).date() + datetime.timedelta(days=2) == dt.now().date() or \
+        parse(tx.get("addedDate")).date()  == dt.now().date():
         logging.info(str(tx))
 
         pb.push_note("New 💰 by Nancy Pelosi", """🏢: %s

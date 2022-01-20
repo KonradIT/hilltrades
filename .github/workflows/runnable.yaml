@@ -1,0 +1,22 @@
+name: runner1
+on:
+  schedule:
+    - cron: "0 0 * * *"
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Install pipenv
+      run: pipx install pipenv
+    - uses: actions/setup-python@v2
+      with:
+        python-version: '3.9'
+        cache: 'pipenv'
+    - run: pipenv install
+    - uses: actions/setup-python@v2
+      with:
+        python-version: "3.7"
+      env:
+        PUSHBULLET_API_KEY: ${{ secrets.PUSHBULLET_API_KEY }}
+    - run: python main.py
