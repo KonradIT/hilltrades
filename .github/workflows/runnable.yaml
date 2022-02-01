@@ -18,7 +18,7 @@ jobs:
         with:
           python-version: "3.7"
       - name: Install requirements
-        run: pip install fake-useragent "pushbullet.py" degiroapi python-dateutil requests
+        run: pip install fake-useragent "pushbullet.py" degiroapi python-dateutil requests python-dotenv
       - name: Run script
         env:
           PUSHBULLET_API_KEY: ${{ secrets.PUSHBULLET_API_KEY }}
