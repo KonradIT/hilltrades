@@ -62,3 +62,5 @@ for tx in p:
 #️⃣: %s %s
 💬: %s""" % (tx.get("ticker"), Parsers.tx_date(tx.get("transactionDate")), tx.get("tradeType"), tx.get("tradeValueRange"), tx.get("shares"), Parsers.share_price(tx.get("sharePrice")), tx.get("comment")))
         time.sleep(2)
+
+print("Done fetching values.")
