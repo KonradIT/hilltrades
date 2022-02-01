@@ -5,21 +5,20 @@ on:
   push:
     branches:
       - main
+env:
+  ACTIONS_ALLOW_UNSECURE_COMMANDS: true
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo content
         uses: actions/checkout@v2
-      - name: Setup python
-        uses: actions/setup-python@v2
+      - name: Set up Python
+        uses: actions/setup-python@v2.0.0
         with:
           python-version: "3.7"
-          cache: "pipenv"
-      - name: Install pipenv
-        run: pipx install pipenv
-      - name: Install pipenv dependencies
-        run: pipenv install
+      - name: Install requirements
+        run: pip install fake-useragent "pushbullet.py" degiroapi python-dateutil requests
       - name: Run script
         env:
           PUSHBULLET_API_KEY: ${{ secrets.PUSHBULLET_API_KEY }}
