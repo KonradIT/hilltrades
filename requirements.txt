@@ -3,3 +3,4 @@ fake-useragent
 degiroapi
 python-dateutil
 requests
+python-dotenv
