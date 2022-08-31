@@ -10,6 +10,7 @@ degiroapi = "*"
 python-dateutil = "*"
 requests = "*"
 python-dotenv = "*"
+flask = "*"
 
 [dev-packages]
 

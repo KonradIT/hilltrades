@@ -4,3 +4,4 @@ degiroapi
 python-dateutil
 requests
 python-dotenv
+flask
